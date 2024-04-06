@@ -1,6 +1,7 @@
 rwildcard = $(foreach d, $(wildcard $1*), $(call rwildcard, $d/, $2) $(filter $(subst *, %, $2), $d))
 CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -pedantic -D_GLIBCXX_USE_CXX11_ABI=1 -DYAML_CPP_STATIC_DEFINE=1 -ggdb -g
+CXXFLAGSDBG = -Wall -Wextra -Werror -pedantic -D_GLIBCXX_USE_CXX11_ABI=1 -DYAML_CPP_STATIC_DEFINE=1 -ggdb -g
+CXXFLAGS = -Wall -Wextra -Werror -pedantic -D_GLIBCXX_USE_CXX11_ABI=1 -DYAML_CPP_STATIC_DEFINE=1 -O5
 SOURCES = $(call rwildcard, lib/, *.cpp) $(call rwildcard, src/, *.cpp) $(call rwildcard, yaml-cpp/src/, *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 INCLUDES = -Iyaml-cpp/include -Ilib

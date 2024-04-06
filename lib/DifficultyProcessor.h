@@ -29,7 +29,7 @@ private:
 
 public:
     float OverallDifficulty;
-    QssPatternFlags QssPatternFlags;
+    QssPatternFlags PatternFlags;
     const float SECONDS_TO_MILLISECONDS = 1000;
     const string Version = "0.0.5";
     StrainConstantsKeys StrainConstants;

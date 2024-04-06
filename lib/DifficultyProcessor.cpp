@@ -455,11 +455,11 @@ void DifficultyProcessor::ComputeForPatternFlags()
 {
     // If 10% or more of the map has longjack manip, flag it as vibro map
     if (VibroInaccuracyConfidence / SolverData.size() > 0.10)
-        QssPatternFlags |= QssPatternFlags::SimpleVibro;
+        PatternFlags |= QssPatternFlags::SimpleVibro;
 
     // If 15% or more of the map has roll manip, flag it as roll map
     if (RollInaccuracyConfidence / SolverData.size() > 0.15)
-        QssPatternFlags |= QssPatternFlags::Rolls;
+        PatternFlags |= QssPatternFlags::Rolls;
 }
 
 float DifficultyProcessor::CalculateOverallDifficulty()
@@ -598,8 +598,6 @@ float DifficultyProcessor::CalculateOverallDifficulty()
     float shortMapAdjustment = std::min(1.0f, std::max(maxShortMapAdjustment, 0.25f * sqrt(trueDrainTime / shortMapThreshold) + 0.75f));
 
     calculatedDiff *= shortMapAdjustment;
-
-    printf("trueDrainTime: %f bins.size: %lld binSize: %d continuity: %f\n", trueDrainTime, static_cast<long long unsigned int>(bins.size()), binSize, continuity);
 
     return calculatedDiff;
 }

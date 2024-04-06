@@ -2,7 +2,7 @@
 #include "yaml-cpp/yaml.h"
 #include "YamlParser.h"
 #include <fstream>
-#include "DifficultyProcessorKeys.h"
+#include "DifficultyProcessor.h"
 
 Qua Qua::ParseBuffer(string buffer, bool checkValidity)
 {
